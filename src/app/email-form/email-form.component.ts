@@ -247,15 +247,14 @@ export class EmailFormComponent implements OnInit {
 
   onSubmit() {
     const message = JSON.stringify(this.profileForm.value);
-    console.log(message);
-    // this.email.send(message).subscribe({
-    //   next: (val: any) => {
-    //     console.log('good', val);
-    //   },
-    //   error: (err: any) => {
-    //     console.log('zle', err);
-    //   },
-    // });
+    this.email.send(message).subscribe({
+      next: (val: any) => {
+        console.log('good', val);
+      },
+      error: (err: any) => {
+        console.log('zle', err);
+      },
+    });
   }
 
   get emailField() {
