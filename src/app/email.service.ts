@@ -11,10 +11,9 @@ export class EmailService {
     'Content-Type': 'application/json',
   });
   httpOptions = { headers: this.headers };
-    // please dont abuse this token - cba to create a backend for this
-  url = "https://formspree.io/f/xyyvwrle"
-  // url = "https://formspree.io/f/xrgdqnyw"
-
+  // please dont abuse this token - cba to create a backend for this
+  url = "https://formspree.io/f/mknerdyp"
+  
   constructor(private http: HttpClient) { }
 
   send(body: any): Observable<any> {
