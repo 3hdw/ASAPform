@@ -1,0 +1,80 @@
+#email-form-container{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/ASAPform/assets/bg.png);
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#full-name-input{
+    grid-area: fullname;
+    justify-self: end;
+}
+#age-input{
+    grid-area: age;
+    justify-self: start;
+}
+#email-input{
+    grid-area: email;
+    justify-self: end;
+}
+#goal-input{
+    grid-area: goal;
+    justify-self: center;
+}
+#movie-opt-input{
+    grid-area: movieopt;
+    justify-self: start;
+    padding-bottom: 17px;
+    width: 201px;
+}
+#level-input{
+    grid-area: level;
+    justify-self: start;
+}
+#country-input{
+    grid-area: country;
+    justify-self: end;
+}
+#submit{
+    grid-area: submit;
+    justify-self: center;
+}
+
+#email-form{
+    padding: 20px;
+    width: 100%;
+    max-width: 650px;
+    overflow-y: scroll;
+    overflow: auto;
+    height: 60%;
+    display: grid;
+
+    background:rgba(250,250,250,0.9);
+    border-radius: 20px;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+
+    grid-template-areas:
+        "fullname level"
+        "country age"
+        "email movieopt"
+        "goal goal"
+        "submit submit";
+
+    align-items: center;
+}
+
+button{
+    width: 30%;
+    height: 40px;
+}

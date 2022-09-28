@@ -1,0 +1,73 @@
+<div id="email-form-container">
+  <form id="email-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <mat-form-field id="full-name-input" appearance="fill">
+      <mat-label>Full Name</mat-label>
+      <input matInput placeholder="e.g. John Doe" />
+    </mat-form-field>
+    <mat-form-field id="country-input" appearance="fill">
+      <mat-label>Country</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Country"
+        matInput
+        formControlName="country"
+        [matAutocomplete]="autoCountry"
+      />
+      <mat-autocomplete autoActiveFirstOption #autoCountry="matAutocomplete">
+        <mat-option
+          *ngFor="let option of countryOptions$ | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field id="level-input" appearance="fill">
+      <mat-label>Level</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Level"
+        matInput
+        formControlName="level"
+        [matAutocomplete]="autoLevel"
+      />
+      <mat-autocomplete autoActiveFirstOption #autoLevel="matAutocomplete">
+        <mat-option
+          *ngFor="let option of levelOptions$ | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field id="email-input" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="e.g. pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error>{{ getEmailErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field id="age-input" appearance="fill">
+      <mat-label>Age</mat-label>
+      <input
+        matInput
+        placeholder="e.g. 30"
+        formControlName="age"
+        type="number"
+      />
+    </mat-form-field>
+    <mat-form-field id="goal-input" appearance="fill">
+      <mat-label>Your goal</mat-label>
+      <textarea placeholder="e.g. improve listening, talking, etc." formControlName="goal" matInput></textarea>
+    </mat-form-field>
+    <section id="movie-opt-input">
+      <mat-checkbox color="primary" formControlName="movieOpt">Interested in free movie<br/> session?</mat-checkbox>
+    </section>
+    <button mat-raised-button color="primary" id="submit" type="submit" [disabled]="!profileForm.valid">Next</button>
+  </form>
+</div>
