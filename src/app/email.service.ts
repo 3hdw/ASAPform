@@ -12,8 +12,8 @@ export class EmailService {
   });
   httpOptions = { headers: this.headers };
     // please dont abuse this token - cba to create a backend for this
-  // url = "https://formspree.io/f/xyyvwrle"
-  url = "https://formspree.io/f/xrgdqnyw"
+  url = "https://formspree.io/f/xyyvwrle"
+  // url = "https://formspree.io/f/xrgdqnyw"
 
   constructor(private http: HttpClient) { }
 
