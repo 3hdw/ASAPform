@@ -210,10 +210,18 @@ export class EmailFormComponent implements OnInit {
     'Zimbabwe',
   ];
 
-  levelOptions = ["A1", "A2", "B1", "B2", "C1", "C2"]
+  levelOptions = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  goalOptions = [
+    'Speak better english',
+    'Improve grammar',
+    'Improve listening skills',
+    'All of the above',
+    'Others',
+  ];
 
   countryOptions$: Observable<string[]>;
   levelOptions$: Observable<string[]>;
+  goalOptions$: Observable<string[]>;
 
   profileForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -221,7 +229,7 @@ export class EmailFormComponent implements OnInit {
     level: [''],
     age: [''],
     movieOpt: [''],
-    goal: ['']
+    goal: [''],
   });
 
   private _filter(value: string, collection: string[]): string[] {
@@ -241,20 +249,37 @@ export class EmailFormComponent implements OnInit {
       startWith(''),
       map((value) => this._filter(value || '', this.levelOptions))
     );
+    this.goalOptions$ = this.profileForm!.get('goal')!.valueChanges!.pipe(
+      startWith(''),
+      map((value) => this._filter(value || '', this.goalOptions))
+    );
   }
 
   ngOnInit(): void {}
 
   onSubmit() {
     const message = JSON.stringify(this.profileForm.value);
-    this.email.send(message).subscribe({
-      next: (val: any) => {
-        console.log('good', val);
-      },
-      error: (err: any) => {
-        console.log('zle', err);
-      },
-    });
+    let link = document.createElement('a');
+    link.setAttribute('type', 'hidden');
+    link.href = 'https://www.google.com';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    link = document.createElement('a');
+    link.setAttribute('type', 'hidden');
+    link.href = 'assets/booklet.pdf';
+    link.download = 'booklet.pdf';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    // this.email.send(message).subscribe({
+    //   next: (val: any) => {
+    //     console.log('good', val);
+    //   },
+    //   error: (err: any) => {
+    //     console.log('zle', err);
+    //   },
+    // });
   }
 
   get emailField() {

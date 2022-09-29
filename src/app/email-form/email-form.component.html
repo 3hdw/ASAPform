@@ -62,12 +62,29 @@
       />
     </mat-form-field>
     <mat-form-field id="goal-input" appearance="fill">
-      <mat-label>Your goal</mat-label>
-      <textarea placeholder="e.g. improve listening, talking, etc." formControlName="goal" matInput></textarea>
+      <mat-label>Your Goal</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Goal"
+        matInput
+        formControlName="goal"
+        [matAutocomplete]="autoGoal"
+      />
+      <mat-autocomplete autoActiveFirstOption #autoGoal="matAutocomplete">
+        <mat-option
+          *ngFor="let option of goalOptions$ | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
     <section id="movie-opt-input">
-      <mat-checkbox color="primary" formControlName="movieOpt">Interested in free movie<br/> session?</mat-checkbox>
+      <mat-checkbox color="primary" formControlName="movieOpt">Interested in a free movie<br/> session?</mat-checkbox>
     </section>
     <button mat-raised-button color="primary" id="submit" type="submit" [disabled]="!profileForm.valid">Next</button>
   </form>
+
+  <div class="floater"></div>
 </div>

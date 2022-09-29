@@ -1,8 +1,9 @@
 #email-form-container{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(/ASAPform/assets/bg.png);
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-image: url(/ASAPform/assets/bg.png);
+    background-color: rgb(252, 233, 216);
     height: 100%;
     width: 100%;
     min-width: 100%;
@@ -10,6 +11,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 #full-name-input{
@@ -27,6 +30,7 @@
 #goal-input{
     grid-area: goal;
     justify-self: center;
+    width: 70%;
 }
 #movie-opt-input{
     grid-area: movieopt;
@@ -55,6 +59,7 @@
     overflow: auto;
     height: 60%;
     display: grid;
+    z-index: 3;
 
     background:rgba(250,250,250,0.9);
     border-radius: 20px;
@@ -77,4 +82,28 @@
 button{
     width: 30%;
     height: 40px;
+}
+
+.floater{
+    position: absolute;
+    left: 60px;
+    bottom: 20px;
+    min-height: 369px;
+    min-width: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: fill;
+    background-image: url(/ASAPform/assets/img1.png);
+    &::after{
+        content: "";
+        position: absolute;
+        left:50%;
+        top:50%;
+        height: 220px;
+        width: 220px;
+        background-color: white;
+        transform: translate(-50%, -50%) rotate(45deg);
+        position: absolute;
+        z-index: -1;  
+    }
 }
