@@ -212,10 +212,10 @@ export class EmailFormComponent implements OnInit {
 
   levelOptions = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   goalOptions = [
-    'Speak better English',
-    'Improve grammar',
-    'Improve listening skills',
-    'All of the above',
+    'Speak Better English',
+    'Improve Grammar',
+    'Improve Listening Skills',
+    'All Of The Above',
     'Others',
   ];
 
@@ -259,6 +259,19 @@ export class EmailFormComponent implements OnInit {
 
   onSubmit() {
     const message = JSON.stringify(this.profileForm.value);
+    this.email.send(message).subscribe({
+      next: (val: any) => {
+        console.log('good', val);
+        this.downloadAndRedirect();
+      },
+      error: (err: any) => {
+        console.log('zle', err);
+        this.downloadAndRedirect();
+      },
+    });
+  }
+
+  downloadAndRedirect() {
     let link = document.createElement('a');
     link.setAttribute('type', 'hidden');
     link.href = 'https://www.google.com';
@@ -272,14 +285,6 @@ export class EmailFormComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     link.remove();
-    // this.email.send(message).subscribe({
-    //   next: (val: any) => {
-    //     console.log('good', val);
-    //   },
-    //   error: (err: any) => {
-    //     console.log('zle', err);
-    //   },
-    // });
   }
 
   get emailField() {
