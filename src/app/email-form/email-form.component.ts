@@ -212,7 +212,7 @@ export class EmailFormComponent implements OnInit {
 
   levelOptions = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   goalOptions = [
-    'Speak better english',
+    'Speak better English',
     'Improve grammar',
     'Improve listening skills',
     'All of the above',

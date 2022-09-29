@@ -84,16 +84,7 @@ button{
     height: 40px;
 }
 
-.floater{
-    position: absolute;
-    left: 60px;
-    bottom: 20px;
-    min-height: 369px;
-    min-width: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: fill;
-    background-image: url(/ASAPform/assets/img1.png);
+.romb{
     &::after{
         content: "";
         position: absolute;
@@ -106,4 +97,38 @@ button{
         position: absolute;
         z-index: -1;  
     }
+}
+
+.floater{
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: fill;
+}
+
+.img1 {
+    left: 60px;
+    background-image: url(/ASAPform/assets/img1.png);
+    min-height: 369px;
+    min-width: 300px;
+    bottom: 20px;
+}
+
+.logo{
+    bottom: 20px;
+    right: 60px;
+    background-image: url(/ASAPform/assets/logo.png);
+    background-size: contain;
+    min-height: 269px;
+    min-width: 200px;
+}
+
+
+.img2{
+    top: 20px;
+    right: 60px;
+    background-image: url(/ASAPform/assets/img2.png);
+    background-size: cover;
+    min-height: 369px;
+    min-width: 300px;
 }
