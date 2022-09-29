@@ -1,134 +1,206 @@
-#email-form-container{
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-image: url(/ASAPform/assets/bg.png);
-    background-color: rgb(252, 233, 216);
-    height: 100%;
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+#email-form-container {
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-image: url(/ASAPform/assets/bg.png);
+  background-color: rgb(252, 233, 216);
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-#full-name-input{
-    grid-area: fullname;
-    justify-self: end;
+#full-name-input {
+  grid-area: fullname;
+  justify-self: end;
 }
-#age-input{
-    grid-area: age;
-    justify-self: start;
+#age-input {
+  grid-area: age;
+  justify-self: start;
 }
-#email-input{
-    grid-area: email;
-    justify-self: end;
+#email-input {
+  grid-area: email;
+  justify-self: end;
 }
-#goal-input{
-    grid-area: goal;
-    justify-self: center;
-    width: 70%;
+#goal-input {
+  grid-area: goal;
+  justify-self: center;
+  width: 70%;
 }
-#movie-opt-input{
-    grid-area: movieopt;
-    justify-self: start;
-    padding-bottom: 17px;
-    width: 201px;
+#movie-opt-input {
+  grid-area: movieopt;
+  justify-self: start;
+  padding-bottom: 17px;
+  width: 201px;
 }
-#level-input{
-    grid-area: level;
-    justify-self: start;
+#level-input {
+  grid-area: level;
+  justify-self: start;
 }
-#country-input{
-    grid-area: country;
-    justify-self: end;
+#country-input {
+  grid-area: country;
+  justify-self: end;
 }
-#submit{
-    grid-area: submit;
-    justify-self: center;
-}
-
-#email-form{
-    padding: 20px;
-    width: 100%;
-    max-width: 650px;
-    overflow-y: scroll;
-    overflow: auto;
-    height: 60%;
-    display: grid;
-    z-index: 3;
-
-    background:rgba(250,250,250,0.9);
-    border-radius: 20px;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-
-
-    grid-template-areas:
-        "fullname level"
-        "country age"
-        "email movieopt"
-        "goal goal"
-        "submit submit";
-
-    align-items: center;
+#submit {
+  grid-area: submit;
+  justify-self: center;
 }
 
-button{
-    width: 30%;
-    height: 40px;
+#email-form {
+  padding: 20px;
+  width: 100%;
+  max-width: 650px;
+  overflow-y: scroll;
+  overflow: auto;
+  height: 60%;
+  display: grid;
+  z-index: 3;
+
+  background: rgba(250, 250, 250, 0.9);
+  border-radius: 20px;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  grid-template-areas:
+    "fullname level"
+    "country age"
+    "email movieopt"
+    "goal goal"
+    "submit submit";
+
+  align-items: center;
 }
 
-.romb{
-    &::after{
-        content: "";
-        position: absolute;
-        left:50%;
-        top:50%;
-        height: 220px;
-        width: 220px;
-        background-color: white;
-        transform: translate(-50%, -50%) rotate(45deg);
-        position: absolute;
-        z-index: -1;  
-    }
+button {
+  width: 30%;
+  height: 40px;
 }
 
-.floater{
+.romb {
+  &::after {
+    content: "";
     position: absolute;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: fill;
+    left: 50%;
+    top: 50%;
+    height: 220px;
+    width: 220px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(45deg);
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.floater {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: fill;
 }
 
 .img1 {
-    left: 60px;
-    background-image: url(/ASAPform/assets/img1.png);
-    min-height: 369px;
-    min-width: 300px;
-    bottom: 20px;
+  left: 60px;
+  background-image: url(/ASAPform/assets/img1.png);
+  min-height: 369px;
+  min-width: 300px;
+  bottom: 20px;
 }
 
-.logo{
-    bottom: 20px;
-    right: 60px;
+.logo {
+  bottom: 20px;
+  right: 60px;
+  background-image: url(/ASAPform/assets/logo.png);
+  background-size: contain;
+  min-height: 269px;
+  min-width: 200px;
+}
+
+.logo-resp{
+    display: none;
+}
+
+.img2 {
+  top: 20px;
+  right: 60px;
+  background-image: url(/ASAPform/assets/img2.png);
+  background-size: cover;
+  min-height: 369px;
+  min-width: 300px;
+}
+
+@media only screen and (max-width: 700px) {
+  .img1,
+  .img2,
+  .logo {
+    display: none;
+  }
+
+  #email-form {
+    width: 80%;
+    height: 70%;
+  }
+
+  .logo-resp {
+    display: initial;
+    top: 0px;
+    right: auto;
+    left: auto;
+    background-position: center;
+    background-repeat: no-repeat;
     background-image: url(/ASAPform/assets/logo.png);
-    background-size: contain;
-    min-height: 269px;
-    min-width: 200px;
+    background-size: 240px 90px;
+    height: 100px;
+    width: 350px;
+  }
 }
 
+@media only screen and (max-width: 533px) {
 
-.img2{
-    top: 20px;
-    right: 60px;
-    background-image: url(/ASAPform/assets/img2.png);
-    background-size: cover;
-    min-height: 369px;
-    min-width: 300px;
+    .logo-resp {
+        top:10px;
+        background-size: 140px 60px;
+        height: 60px;
+        width: 280px;
+      }
+
+
+  #email-form {
+    padding: 5px;
+    width: 90%;
+    height: 80%;
+
+    grid-template-columns: 1fr;
+
+    gap: 5px;
+
+    grid-template-areas:
+      "fullname"
+      "level"
+      "country"
+      "age"
+      "email"
+      "movieopt"
+      "goal"
+      "submit";
+
+    align-items: center;
+  }
+
+  #full-name-input,
+  #age-input,
+  #email-input,
+  #goal-input,
+  #movie-opt-input,
+  #level-input,
+  #country-input,
+  #submit {
+    justify-self: center;
+  }
 }
