@@ -280,8 +280,8 @@ export class EmailFormComponent implements OnInit {
     link.remove();
     link = document.createElement('a');
     link.setAttribute('type', 'hidden');
-    link.href = 'assets/booklet.pdf';
-    link.download = 'booklet.pdf';
+    link.href = 'assets/asap_booklet.pdf';
+    link.download = 'asap_booklet.pdf';
     document.body.appendChild(link);
     link.click();
     link.remove();
