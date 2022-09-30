@@ -274,7 +274,7 @@ export class EmailFormComponent implements OnInit {
   downloadAndRedirect() {
     let link = document.createElement('a');
     link.setAttribute('type', 'hidden');
-    link.href = 'https://www.canva.com/design/DAFNtfNrYBA/BljSwKpDzKVfdXzUVIyzfQ/view?website&fbclid=IwAR0qzimqdk9LD_l3z0XcoLLMZiyllkGRK2WQh0UfFWgyF_S3bLvDm-sdp6g#2';
+    link.href = 'https://asapenglish.my.canva.site/thank-you-asap-english';
     document.body.appendChild(link);
     link.click();
     link.remove();
