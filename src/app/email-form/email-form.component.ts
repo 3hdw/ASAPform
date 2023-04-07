@@ -228,9 +228,11 @@ export class EmailFormComponent implements OnInit {
     country: [''],
     level: [''],
     age: [''],
-    movieOpt: [''],
+    newsletterOpt: [''],
     goal: [''],
   });
+
+  submitted: boolean = false;
 
   private _filter(value: string, collection: string[]): string[] {
     const filterValue = value.toLowerCase();
@@ -262,30 +264,30 @@ export class EmailFormComponent implements OnInit {
     this.email.send(message).subscribe({
       next: (val: any) => {
         console.log('good', val);
-        this.downloadAndRedirect();
+        this.submitted = true;
       },
       error: (err: any) => {
         console.log('zle', err);
-        this.downloadAndRedirect();
+        this.submitted = true;
       },
     });
   }
 
-  downloadAndRedirect() {
-    let link = document.createElement('a');
-    link.setAttribute('type', 'hidden');
-    link.href = 'https://asapenglish.my.canva.site/thank-you-asap-english';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    link = document.createElement('a');
-    link.setAttribute('type', 'hidden');
-    link.href = 'assets/asap_booklet.pdf';
-    link.download = 'asap_booklet.pdf';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  }
+  // downloadAndRedirect() {
+  //   let link = document.createElement('a');
+  //   link.setAttribute('type', 'hidden');
+  //   link.href = 'https://asapenglish.my.canva.site/thank-you-asap-english';
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   link.remove();
+  //   link = document.createElement('a');
+  //   link.setAttribute('type', 'hidden');
+  //   link.href = 'assets/asap_booklet.pdf';
+  //   link.download = 'asap_booklet.pdf';
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   link.remove();
+  // }
 
   get emailField() {
     return this.profileForm.get('email');

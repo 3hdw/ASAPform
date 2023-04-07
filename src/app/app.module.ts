@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmailFormComponent
+    EmailFormComponent,
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,

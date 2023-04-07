@@ -1,5 +1,5 @@
 <div id="email-form-container">
-  <form id="email-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form  [ngClass]="{'hide': submitted === true}" id="email-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <mat-form-field id="full-name-input" appearance="fill">
       <mat-label>Full Name</mat-label>
       <input matInput placeholder="e.g. John Doe" />
@@ -81,11 +81,13 @@
       </mat-autocomplete>
     </mat-form-field>
     <section id="movie-opt-input">
-      <mat-checkbox color="primary" formControlName="movieOpt">Interested in a free movie<br/> session?</mat-checkbox>
+      <mat-checkbox color="primary" formControlName="newsletterOpt">Opt in to receive a free monthly newsletter.<br/>You can unsubscribe anytime.</mat-checkbox>
     </section>
     <button mat-raised-button color="primary" id="submit" type="submit" [disabled]="!profileForm.valid">Next</button>
   </form>
-
+  <div [ngClass]="{'hide': submitted === false}" class="thanks">
+    <h1>Thank you!<br/>Your form has been submitted</h1>
+  </div>
   <div class="floater img1 romb"></div>
   <div class="floater logo"></div>
   <div class="floater img2"></div>
